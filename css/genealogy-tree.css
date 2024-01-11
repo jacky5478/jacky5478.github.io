@@ -1,0 +1,143 @@
+/*----------------genealogy-scroll----------*/
+
+.genealogy-scroll::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+}
+.genealogy-scroll::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #e4e4e4;
+}
+.genealogy-scroll::-webkit-scrollbar-thumb {
+    background: #212121;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+.genealogy-scroll::-webkit-scrollbar-thumb:hover {
+    background: #d5b14c;
+    transition: 0.5s;
+}
+
+/*----------------genealogy-tree----------*/
+.genealogy-body{/* 第一列 */
+    white-space: nowrap;
+    overflow-y: hidden;
+    padding: 30px;
+    min-height: 0px;
+    padding-top: 10px;
+    text-align: center;
+}
+.genealogy-tree{
+  display: inline-block;
+}
+.genealogy-tree ul {
+    padding-top: 20px; /* 第二列 */
+    position: relative;
+    padding-left: 0px;
+    display: flex;
+    justify-content: center;
+}
+.genealogy-tree li {
+    float: left; text-align: center;
+    list-style-type: none;
+    position: relative;
+    padding: 20px 5px 0 5px;
+}
+.genealogy-tree li::before, .genealogy-tree li::after{/* 第二列線 */
+    content: '';/* 可打文字 */
+    position: absolute; 
+  top: 0; 
+  right: 50%;/* 右橫線長度50% */
+    border-top: 2px solid #ccc;
+    width: 50%; /* 左橫線長度50% */
+  height: 18px;/* 線高度18px */
+}
+.genealogy-tree li::after{
+    right: auto; left: 50%;/* 直線位置50% */
+    border-left: 2px solid #ccc;
+}
+.genealogy-tree li:only-child::after, .genealogy-tree li:only-child::before {
+    display: none;
+}
+.genealogy-tree li:only-child{ 
+    padding-top: 0;
+}
+.genealogy-tree li:first-child::before, .genealogy-tree li:last-child::after{
+    border: 0 none;
+}
+.genealogy-tree li:last-child::before{
+    border-right: 2px solid #ccc;
+    border-radius: 0 5px 0 0;
+    -webkit-border-radius: 0 5px 0 0;
+    -moz-border-radius: 0 5px 0 0;
+}
+.genealogy-tree li:first-child::after{
+    border-radius: 5px 0 0 0;
+    -webkit-border-radius: 5px 0 0 0;
+    -moz-border-radius: 5px 0 0 0;
+}
+.genealogy-tree ul ul::before{ /* 第一列線 */
+    content: '';
+    position: absolute; top: 0; left: 50%;/* 直線位置50% */
+    border-left: 2px solid #ccc;
+    width: 0; height: 20px;
+}
+.genealogy-tree li a{
+    text-decoration: none;
+    color: #666;
+    font-family: arial, verdana, tahoma;
+    font-size: 11px;
+    display: inline-block;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
+.genealogy-tree li a:hover+ul li::after, 
+.genealogy-tree li a:hover+ul li::before, 
+.genealogy-tree li a:hover+ul::before, 
+.genealogy-tree li a:hover+ul ul::before{
+    border-color:  #fbba00;
+}
+
+/*--------------memeber-card-design 會員卡設計----------*/
+.member-view-box{
+    padding:0px 0px;/* 方塊周圍距離 */
+    text-align: center;
+    border-radius: 4px;
+    position: relative;
+}
+/*--------------方塊間距----------*/
+.member-image{
+    width: 160px;/* 方塊間距 */
+    position: relative;
+}
+/*--------------方塊尺寸大小----------*/
+.member-image img{
+    width: 150px;
+    height: 150px;
+    border-radius: 6px;/* 圓角 */
+  background-color :#000;
+  z-index: 1;/* 層級 */
+}
+
+
+#myBtn { /* TOP按鈕設定 */
+  display: none; /* Hidden by default 默認隱藏 */
+  position: fixed; /* Fixed/sticky position 固定/粘性位置 */
+  bottom: 20px; /* Place the button at the bottom of the page 將按鈕放在頁面底部 */
+  right: 30px; /* Place the button 30px from the right 將按鈕放置在距右側 30px 的位置 */
+  z-index: 99; /* Make sure it does not overlap 確保它不重疊 */
+  border: none; /* Remove borders 刪除邊框 */
+  outline: none; /* Remove outline 刪除輪廓 */
+  background-color: red; /* Set a background color 設置背景顏色 */
+  color: white; /* Text color 文字顏色 */
+  cursor: pointer; /* Add a mouse pointer on hover 在懸停時添加鼠標指針 */
+  padding: 10px; /* Some padding 一些填充 */
+  border-radius: 10px; /* Rounded corners 圓角 */
+  font-size: 20px; /* Increase font size 增加字體大小 */
+}
+
+#myBtn:hover {
+  background-color: #555; /* Add a dark-grey background on hover 懸停時添加深灰色背景 */
+}
